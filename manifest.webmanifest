@@ -1,0 +1,16 @@
+{
+  "name": "Los dueños del Sol — Audiolibro",
+  "short_name": "Libro III",
+  "description": "Audiolibro de Los dueños del Sol, Libro III de El ciclo inmóvil.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0605",
+  "theme_color": "#0b0605",
+  "lang": "es",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "maskable" }
+  ]
+}

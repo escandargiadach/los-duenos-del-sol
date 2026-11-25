@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0706">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Audiolibro de Los dueños del Sol, Libro III de El ciclo inmóvil.">
+  <title>Los dueños del Sol — El ciclo inmóvil, Libro III</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <!-- las fuentes se piden antes que la hoja de estilos: si no, el navegador no
+       las descubre hasta leer el CSS y los titulos salen un instante en Georgia -->
+  <link rel="preload" href="assets/fuentes/cormorant-sc-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fuentes/cormorant-sc-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ember-sky" aria-hidden="true"></div>
+  <canvas id="brasas" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <span class="brand-mark" aria-hidden="true">
+        <img src="assets/icons/icon-192.png" alt="">
+      </span>
+      <span><strong>El ciclo inmóvil</strong><small>Libro III · Audiolibro</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#escuchar">Escuchar</a>
+      <a href="#partes">Partes</a>
+      <a href="#saga">Libros I y II</a>
+    </nav>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú">☰</button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-close" id="mobileClose" type="button" aria-label="Cerrar menú">×</button>
+    <a href="#escuchar">Escuchar</a>
+    <a href="#partes">Partes</a>
+    <a href="#saga">Libros I y II</a>
+  </div>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">El ciclo inmóvil · Libro III</p>
+        <h1>Los dueños <span>del Sol</span></h1>
+        <p class="hero-description">El tercer libro de la saga, narrado. Los capítulos se suman aquí a medida que se graban. Tu progreso se guarda en este dispositivo para que continúes donde lo dejaste.</p>
+        <div class="hero-actions">
+          <button class="primary-button" id="resumeButton" type="button">▶ Comenzar a escuchar</button>
+          <a class="secondary-button" href="#escuchar">Ver los capítulos</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong id="chapterCount">14</strong>&nbsp;capítulos</span>
+          <span><strong id="bookHours">10 h 14 min</strong>&nbsp;de audio</span>
+          <span>Progreso guardado</span>
+        </div>
+      </div>
+
+      <!-- portada tipografica, sin imagen: un eclipse de fuego (los anillos de
+           los Azheryn) sobre obsidiana. Se reemplaza cuando exista la portada. -->
+      <div class="cover-wrap">
+        <div class="cover-glow" aria-hidden="true"></div>
+        <div class="cover-art cover-type" role="img"
+             aria-label="Portada: Los dueños del Sol, Libro III de El ciclo inmóvil, de Escandar Giadach">
+          <span class="cover-kicker">El ciclo inmóvil</span>
+          <svg class="cover-sun" viewBox="0 0 200 200" aria-hidden="true">
+            <defs>
+              <radialGradient id="corona" cx="50%" cy="50%" r="50%">
+                <stop offset="46%" stop-color="#ffd08a" stop-opacity=".95"/>
+                <stop offset="56%" stop-color="#f28a2e" stop-opacity=".75"/>
+                <stop offset="72%" stop-color="#b3261e" stop-opacity=".32"/>
+                <stop offset="100%" stop-color="#b3261e" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="disco" cx="42%" cy="38%" r="70%">
+                <stop offset="0%" stop-color="#1c1210"/>
+                <stop offset="100%" stop-color="#050302"/>
+              </radialGradient>
+            </defs>
+            <circle cx="100" cy="100" r="98" fill="url(#corona)"/>
+            <g class="cover-rays" stroke="#f6a54c" stroke-linecap="round">
+              <path d="M100 6v20M100 174v20M6 100h20M174 100h20M33.5 33.5l14 14M152.5 152.5l14 14M33.5 166.5l14-14M152.5 47.5l14-14"/>
+            </g>
+            <circle cx="100" cy="100" r="47" fill="url(#disco)"/>
+            <circle cx="100" cy="100" r="47" fill="none" stroke="#ffcf8a" stroke-width="1.6"/>
+            <circle cx="100" cy="100" r="58" fill="none" stroke="#f6a54c" stroke-opacity=".45" stroke-width=".8"/>
+            <circle cx="100" cy="100" r="66" fill="none" stroke="#f6a54c" stroke-opacity=".22" stroke-width=".6" stroke-dasharray="2 5"/>
+          </svg>
+          <span class="cover-title">Los dueños<br>del Sol</span>
+          <span class="cover-volume">Libro III</span>
+          <span class="cover-author">Escandar Giadach</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section listening-section" id="escuchar">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Audiolibro</p>
+          <h2>Libro III</h2>
+        </div>
+        <div class="overall-progress-card">
+          <span>Progreso total</span>
+          <strong id="overallPercent">0%</strong>
+          <div class="progress-track"><span id="overallProgress"></span></div>
+          <div class="book-time">
+            <span><b id="bookRemaining">--</b> por escuchar</span>
+            <span id="bookTotal">de --</span>
+          </div>
+          <p id="bookSpeedNote" hidden></p>
+        </div>
+      </div>
+
+      <div class="listening-layout">
+        <aside class="now-playing-card">
+          <div class="now-art" aria-hidden="true">
+            <span class="now-art-label" id="nowArtLabel">Capítulo</span>
+            <span class="now-art-number" id="nowNumber">01</span>
+          </div>
+          <p class="mini-label">Reproduciendo</p>
+          <h3 id="nowTitle">Selecciona un capítulo</h3>
+          <p id="nowPart">Parte I</p>
+          <div class="chapter-progress-summary">
+            <span id="elapsedSummary">00:00</span>
+            <span id="durationSummary">--:--</span>
+          </div>
+          <div class="progress-track large"><span id="cardProgress"></span></div>
+          <button class="outline-button" id="offlineButton" type="button">Guardar capítulo sin conexión</button>
+          <p class="small-note" id="offlineNote">Guarda el audio en este dispositivo para escucharlo sin internet.</p>
+        </aside>
+
+        <div class="chapter-panel">
+          <div class="chapter-panel-head">
+            <div>
+              <span>Lista de reproducción</span>
+              <strong>Libro completo</strong>
+            </div>
+          </div>
+          <div class="chapter-list" id="chapterList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section parts-section" id="partes">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Libro III</p>
+          <h2>Por partes</h2>
+          <p>Cada parte abre su lista de capítulos, con lo que llevas escuchado.</p>
+        </div>
+      </div>
+      <div class="part-grid" id="partGrid"></div>
+    </section>
+
+    <section class="section saga-section" id="saga">
+      <div class="saga-card">
+        <div>
+          <p class="eyebrow">La saga</p>
+          <h2>¿Empiezas por aquí?</h2>
+          <p>Los dueños del Sol continúa la historia de Donde termina la luz. Los dos libros anteriores siguen disponibles completos.</p>
+        </div>
+        <div class="saga-links">
+          <a class="secondary-button" href="https://el-ciclo-inmovil.netlify.app/" rel="noopener">Libro I</a>
+          <a class="primary-button" href="https://escandargiadach.github.io/donde-termina-la-luz/" rel="noopener">Libro II</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>Los dueños del Sol</strong>
+      <span>El ciclo inmóvil · Libro III</span>
+      <span>© <span id="year"></span> Escandar Giadach</span>
+    </div>
+  </footer>
+
+  <div class="player-shell" id="playerShell" aria-label="Reproductor de audiolibro">
+    <audio id="audio" preload="metadata"></audio>
+    <div class="player-info">
+      <div class="ice-tile" aria-hidden="true"><span id="playerNumber">01</span></div>
+      <div class="player-text"><span id="playerChapter">Capítulo</span><strong id="playerTitle">Selecciona un capítulo</strong></div>
+    </div>
+    <div class="player-main">
+      <div class="player-controls">
+        <button type="button" id="previousButton" aria-label="Capítulo anterior"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h2.2v14H6z"/><path d="M19.5 5.6v12.8L9.8 12z"/></svg></button>
+        <button type="button" id="backButton" aria-label="Retroceder 10 segundos"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 3.8 5 6.2l2.4 2.4"/><path d="M5 6.2h7.3a6.4 6.4 0 1 1-6.4 6.4"/></g><text x="12.2" y="15.4" text-anchor="middle" font-size="7" font-weight="800" fill="currentColor" font-family="inherit">10</text></svg></button>
+        <button class="play-button" type="button" id="playButton" aria-label="Reproducir"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 5.2v13.6L19.5 12z"/></svg></button>
+        <button type="button" id="forwardButton" aria-label="Avanzar 10 segundos"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16.6 3.8 19 6.2l-2.4 2.4"/><path d="M19 6.2h-7.3a6.4 6.4 0 1 0 6.4 6.4"/></g><text x="11.8" y="15.4" text-anchor="middle" font-size="7" font-weight="800" fill="currentColor" font-family="inherit">10</text></svg></button>
+        <button type="button" id="nextButton" aria-label="Capítulo siguiente"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.8 5h2.2v14h-2.2z"/><path d="M4.5 5.6v12.8L14.2 12z"/></svg></button>
+      </div>
+      <div class="timeline-row">
+        <span id="currentTime">00:00</span>
+        <input id="timeline" type="range" min="0" max="100" value="0" step="0.1" aria-label="Progreso del capítulo">
+        <span id="duration">--:--</span>
+      </div>
+    </div>
+    <div class="player-options">
+      <div class="speed-picker">
+        <button type="button" class="speed-toggle" id="speedToggle"
+                aria-haspopup="true" aria-expanded="false" aria-controls="speedPop">
+          <span class="speed-toggle-label">Velocidad</span>
+          <b id="speedToggleValue">1×</b>
+        </button>
+        <div class="speed-pop" id="speedPop" hidden>
+          <div class="speed-wheel" id="speedWheel" role="slider" tabindex="0"
+               aria-label="Velocidad de reproducción" aria-valuemin="0.75"
+               aria-valuemax="2" aria-valuenow="1" aria-valuetext="1×">
+            <div class="speed-wheel-band" aria-hidden="true"></div>
+            <div class="speed-wheel-track" id="speedWheelTrack"></div>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="muteButton" aria-label="Silenciar"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 9.3v5.4h3.3L12 18.9V5.1L7.3 9.3z"/><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M14.8 9.3a3.9 3.9 0 0 1 0 5.4"/><path d="M17.3 6.9a7.3 7.3 0 0 1 0 10.2"/></g></svg></button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="content.js"></script>
+  <script src="brasas.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
