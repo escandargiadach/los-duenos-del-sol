@@ -16,21 +16,27 @@
    25-nov, paleta «Crepusculo» (eleccion de Escandar: «un fondo menos oscuro»):
    los fondos, paneles y vidrios subieron de casi negro a cafe rojizo
    (luminosidad 0,075 + 1,9 x la anterior); acentos y texto, sin cambios.
-   Muestras descartadas: eclipse, carmesi, oro solar, lava y dia eterno (claro). */
+   Muestras descartadas: eclipse, carmesi, oro solar, lava y dia eterno (claro).
+   25-nov, mas contraste (Escandar: «le falta un poco de contraste»; eligio la
+   variante B). El fondo cafe (--bg y .ember-sky) queda; todas las superficies
+   (paneles, vidrios, botones, reproductor) bajaron a la mitad de luminosidad,
+   casi obsidiana, para separarse del fondo; texto, texto apagado, lineas y
+   ambar subieron (--muted paso de 3,9:1 a mas de 10:1 sobre los paneles).
+   Generador: contraste.py (scratchpad de la sesion). */
 :root{
   --bg:#301915;
-  --panel:#4d2b1f;
-  --panel-2:#5f3527;
-  --glass:rgba(78,41,28,.58);
-  --text:#f7eee3;
-  --muted:#b09c8b;
-  --line:rgba(241,179,113,.13);
-  --frost:rgba(243,226,207,.09);
-  --ink:#fbf5ef;
-  --ice:#efa95e;
-  --ice-strong:#f1b26e;
+  --panel:#261610;
+  --panel-2:#301a14;
+  --glass:rgba(39,20,14,.58);
+  --text:#fffaf4;
+  --muted:#e6d6c5;
+  --line:rgba(241,179,113,.30);
+  --frost:rgba(243,226,207,.16);
+  --ink:#fffcf8;
+  --ice:#ffb862;
+  --ice-strong:#ffc47e;
   --ice-soft:rgba(239,169,94,.12);
-  --on-ice:#492218;
+  --on-ice:#24110c;
   --danger:#e8907f;
   --shadow:0 24px 70px rgba(0,0,0,.45);
   --radius:20px;
@@ -67,9 +73,9 @@ a,button{color:inherit}
 #brasas{position:fixed;inset:0;z-index:-1;pointer-events:none}
 
 /* ---- barra superior ---- */
-.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;padding:0 clamp(18px,5vw,72px);background:rgba(56,27,19,.72);border-bottom:1px solid var(--line);box-shadow:inset 0 -1px 0 var(--frost);-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2)}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px;padding:0 clamp(18px,5vw,72px);background:rgba(28,14,10,.72);border-bottom:1px solid var(--line);box-shadow:inset 0 -1px 0 var(--frost);-webkit-backdrop-filter:blur(18px) saturate(1.2);backdrop-filter:blur(18px) saturate(1.2)}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand-mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(239,169,94,.28);border-radius:50%;color:var(--ice);background:radial-gradient(circle at 35% 30%,#9e5640,#50281c);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 22px rgba(237,159,76,.22)}
+.brand-mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(239,169,94,.28);border-radius:50%;color:var(--ice);background:radial-gradient(circle at 35% 30%,#9e5640,#28140e);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 22px rgba(237,159,76,.22)}
 .brand-mark svg{width:22px;height:22px}
 /* el emblema gélido del canon reemplaza al copo de nieve (15-sep) */
 .brand-mark img{width:100%;height:100%;border-radius:50%;object-fit:cover}   /* el icono del Libro III trae su propio fondo: va recortado en circulo */
@@ -83,7 +89,7 @@ a,button{color:inherit}
 .desktop-nav a:hover::after{right:0}
 .menu-button{display:none;place-items:center;width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--glass);font-size:20px;cursor:pointer}
 
-.mobile-menu{position:fixed;inset:0;z-index:120;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:40px;background:rgba(50,26,17,.97);transform:translateY(-102%);transition:transform .25s ease,visibility .25s;visibility:hidden}
+.mobile-menu{position:fixed;inset:0;z-index:120;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:40px;background:rgba(25,13,9,.97);transform:translateY(-102%);transition:transform .25s ease,visibility .25s;visibility:hidden}
 .mobile-menu.open{transform:none;visibility:visible}
 .mobile-menu a{font:500 clamp(34px,9vw,54px)/1.1 var(--serif);color:var(--ink);text-decoration:none}
 .mobile-close{position:absolute;top:18px;right:18px;width:46px;height:46px;border:1px solid var(--line);border-radius:50%;background:transparent;font-size:30px;cursor:pointer}
@@ -113,7 +119,7 @@ main{width:min(1460px,100%);margin:0 auto}
 .cover-art.cover-type{display:flex;flex-direction:column;align-items:center;padding:9% 9% 8%;overflow:hidden;text-align:center;background:
   radial-gradient(120% 70% at 50% 108%,rgba(179,38,30,.38),transparent 62%),
   radial-gradient(90% 55% at 50% 38%,rgba(242,140,50,.16),transparent 70%),
-  linear-gradient(180deg,#3e211a 0%,#291711 55%,#451a13 100%)}
+  linear-gradient(180deg,#1f100d 0%,#140c09 55%,#220d0a 100%)}
 .cover-type::after{content:"";position:absolute;inset:3.2%;border:1px solid rgba(246,165,76,.22);border-radius:3px;pointer-events:none}
 .cover-kicker{position:relative;z-index:1;color:#f2a24a;font-size:clamp(9px,2.6cqi,11px);font-weight:800;letter-spacing:.34em;text-transform:uppercase}
 .cover-sun{position:relative;z-index:1;width:68%;margin:auto 0 0;filter:drop-shadow(0 0 26px rgba(242,138,46,.45))}
@@ -149,7 +155,7 @@ main{width:min(1460px,100%);margin:0 auto}
 .listening-layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:24px;align-items:start}
 .now-playing-card{position:sticky;top:96px;padding:18px;border-radius:var(--radius)}
 /* arte del capítulo sin imagen: número grande sobre hielo que se hunde en la noche */
-.now-art{position:relative;container-type:inline-size;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:1/1;padding:18px 20px;overflow:hidden;border-radius:14px;color:#faf3eb;background:linear-gradient(180deg,#f1b473 0%,#b2432c 28%,#833e2a 62%,#3a1a12 100%);box-shadow:inset 0 0 0 1px rgba(241,221,199,.22),0 0 40px rgba(237,159,76,.08)}
+.now-art{position:relative;container-type:inline-size;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:1/1;padding:18px 20px;overflow:hidden;border-radius:14px;color:#faf3eb;background:linear-gradient(180deg,#f1b473 0%,#b2432c 28%,#833e2a 62%,#1d0d09 100%);box-shadow:inset 0 0 0 1px rgba(241,221,199,.22),0 0 40px rgba(237,159,76,.08)}
 .now-art::before{content:"";position:absolute;inset:0;background:linear-gradient(128deg,transparent 0 46%,rgba(255,255,255,.1) 46% 60%,transparent 60%),linear-gradient(38deg,transparent 0 58%,rgba(241,182,118,.09) 58% 72%,transparent 72%)}
 .now-art-label{position:relative;font-size:10px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:rgba(248,238,227,.82)}
 .now-art-number{position:relative;margin-top:4px;font:500 96px/.85 var(--serif);font-size:52cqi;letter-spacing:-.06em;color:#fcf8f4;text-shadow:0 0 40px rgba(239,169,94,.45);font-variant-numeric:lining-nums}
@@ -175,7 +181,7 @@ main{width:min(1460px,100%);margin:0 auto}
 .chapter-item{flex:1;min-width:0;display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:15px;align-items:center;padding:16px 20px;border:0;background:transparent;text-align:left;cursor:pointer;transition:background .15s ease}
 .chapter-item:hover{background:rgba(239,169,94,.05)}
 .chapter-item.active{background:linear-gradient(90deg,rgba(237,159,76,.17),rgba(237,159,76,.02));box-shadow:inset 3px 0 0 var(--ice)}
-.chapter-number{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(239,169,94,.24);border-radius:50%;color:#f7ece0;background:radial-gradient(circle at 35% 30%,#8f4f3b,#522b1e);box-shadow:inset 0 1px 0 rgba(255,255,255,.07);font:600 14px/1 var(--serif)}
+.chapter-number{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(239,169,94,.24);border-radius:50%;color:#f7ece0;background:radial-gradient(circle at 35% 30%,#8f4f3b,#29150f);box-shadow:inset 0 1px 0 rgba(255,255,255,.07);font:600 14px/1 var(--serif)}
 .chapter-item.active .chapter-number{color:var(--on-ice);border-color:transparent;background:linear-gradient(180deg,#ffe2b8,#f2a24a);box-shadow:0 0 18px rgba(242,150,60,.4)}
 .chapter-copy strong{display:block;font:500 19px/1.2 var(--serif);color:var(--text)}
 .chapter-copy span{display:block;margin-top:6px;color:var(--muted);font-size:11px}
@@ -206,11 +212,11 @@ main{width:min(1460px,100%);margin:0 auto}
 /* Retratos de personajes. Sin backdrop-filter a proposito: en el movil compite
    con la reproduccion del audio (ver nieve.js y el bloque de 900px). */
 .cast-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.cast-card{position:relative;margin:0;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:rgba(88,47,32,.6);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.cast-card{position:relative;margin:0;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:rgba(44,23,16,.6);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
 .cast-card:hover{transform:translateY(-4px);border-color:rgba(239,169,94,.35);box-shadow:0 28px 70px rgba(0,0,0,.5),0 0 40px rgba(237,159,76,.08)}
 .cast-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--ice),transparent);box-shadow:0 0 14px var(--ice);z-index:2}
 .cast-card img{display:block;width:100%;height:auto;aspect-ratio:2/3;max-width:100%;object-fit:cover;object-position:50% 30%}
-.cast-card figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:6px;padding:64px 22px 22px;background:linear-gradient(to top,rgba(57,28,15,.94),rgba(57,28,15,.6) 52%,transparent)}
+.cast-card figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:6px;padding:64px 22px 22px;background:linear-gradient(to top,rgba(28,14,7,.94),rgba(28,14,7,.6) 52%,transparent)}
 .cast-card strong{font:500 26px/1.1 var(--serif);color:var(--ink)}
 .cast-card figcaption span{color:var(--ice);font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
 /* Encabezado de seccion. Ocupa la fila entera para que las tarjetas de la
@@ -244,7 +250,7 @@ main{width:min(1460px,100%);margin:0 auto}
 
 /* Interruptor de anti-spoiler. Encendido por defecto: protege salvo que el
    oyente diga lo contrario. */
-.spoiler-toggle{display:flex;align-items:center;gap:14px;flex:none;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(88,47,32,.6);color:inherit;font:inherit;text-align:left;cursor:pointer;transition:border-color .2s ease}
+.spoiler-toggle{display:flex;align-items:center;gap:14px;flex:none;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(44,23,16,.6);color:inherit;font:inherit;text-align:left;cursor:pointer;transition:border-color .2s ease}
 .spoiler-toggle:hover{border-color:rgba(239,169,94,.35)}
 .spoiler-track{position:relative;flex:none;width:46px;height:26px;border-radius:999px;background:rgba(239,169,94,.3);transition:background .2s ease}
 .spoiler-knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fbf5ef;transition:transform .2s ease}
@@ -256,7 +262,7 @@ main{width:min(1460px,100%);margin:0 auto}
 @media(max-width:620px){.spoiler-toggle{width:100%}}
 /* selector de orden del reparto (28-sep): mismo vidrio que el interruptor de spoilers */
 .cast-controls{display:flex;flex-direction:column;align-items:stretch;gap:10px;flex:none}
-.cast-order{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:16px;background:rgba(88,47,32,.6)}
+.cast-order{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:16px;background:rgba(44,23,16,.6)}
 .cast-order button{flex:1;padding:10px 14px;border:0;border-radius:12px;background:transparent;color:var(--muted);font:500 18px/1.1 var(--serif);cursor:pointer;transition:background .2s ease,color .2s ease}
 .cast-order button:hover{color:var(--ink)}
 .cast-order button[aria-pressed="true"]{background:rgba(239,169,94,.16);color:var(--ink)}
@@ -271,20 +277,20 @@ main{width:min(1460px,100%);margin:0 auto}
 .cast-group img{aspect-ratio:auto 3/2;object-position:50% 50%}
 .cast-group figcaption{padding:52px 24px 20px}
 .cast-group figcaption span{color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:none;font-weight:400}
-.cast-lupa{position:absolute;top:14px;right:14px;z-index:2;width:38px;height:38px;border:1px solid var(--line);border-radius:10px;background:rgba(69,35,25,.72);color:var(--ink);font-size:17px;line-height:1;cursor:zoom-in}
+.cast-lupa{position:absolute;top:14px;right:14px;z-index:2;width:38px;height:38px;border:1px solid var(--line);border-radius:10px;background:rgba(34,18,12,.72);color:var(--ink);font-size:17px;line-height:1;cursor:zoom-in}
 .cast-lupa:hover{border-color:rgba(239,169,94,.45)}
 .cast-group.locked img{display:none}
 dialog#lupa{max-width:96vw;max-height:96vh;padding:0;border:0;border-radius:12px;background:transparent;overflow:visible}
-dialog#lupa::backdrop{background:rgba(49,24,14,.92)}
+dialog#lupa::backdrop{background:rgba(24,12,7,.92)}
 dialog#lupa img{display:block;max-width:96vw;max-height:92vh;width:auto;height:auto;border-radius:10px}
-dialog#lupa button{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#502b1f;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+dialog#lupa button{position:absolute;top:-6px;right:-6px;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#281610;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
 @media(max-width:620px){.cast-group figcaption{padding:44px 16px 16px}.cast-lupa{top:10px;right:10px}}
 
 /* Tarjeta bloqueada: ni cara ni nombre hasta que el libro lo presente.
    NO lleva la proporcion 2:3 del retrato: no hay retrato que mostrar, y al
    empezar el libro hay 60 bloqueadas. Con 2:3 la seccion medía 14.280 px, unas
    18 pantallas de "? ? ?". Apaisadas ocupan menos de un tercio. */
-.cast-card.locked{display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:5/3;background:linear-gradient(160deg,rgba(116,61,46,.85),rgba(69,35,25,.92))}
+.cast-card.locked{display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:5/3;background:linear-gradient(160deg,rgba(116,61,46,.85),rgba(34,18,12,.92))}
 .cast-card.locked:hover{transform:none;box-shadow:none;border-color:var(--line)}
 .cast-locked-art{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(28px,3.4vw,40px);color:rgba(239,169,94,.22)}
 .cast-card.locked figcaption{position:static;background:none;padding:0 18px 14px}
@@ -298,7 +304,7 @@ dialog#lupa button{position:absolute;top:-6px;right:-6px;width:40px;height:40px;
 .cast-card.cast-group.locked{aspect-ratio:auto;min-height:132px;cursor:default}
 
 .saga-section{padding-top:30px;border-top:0}
-.saga-card{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:clamp(32px,5vw,64px);border-radius:28px;background:linear-gradient(135deg,rgba(101,52,38,.78),rgba(163,84,59,.5))}
+.saga-card{display:flex;align-items:center;justify-content:space-between;gap:40px;padding:clamp(32px,5vw,64px);border-radius:28px;background:linear-gradient(135deg,rgba(50,26,19,.78),rgba(163,84,59,.5))}
 .saga-card h2{margin:0;font:500 clamp(38px,5vw,64px)/1.05 var(--serif);letter-spacing:-.04em;color:var(--ink)}
 .saga-card p:last-child{max-width:640px;margin:16px 0 0;color:var(--muted);font-size:16px;line-height:1.75}
 .saga-card .primary-button{flex:none}
@@ -310,9 +316,9 @@ footer>div>strong{color:var(--ink);font:500 20px/1.2 var(--serif)}
 footer>div>span{margin-top:7px}
 
 /* ---- reproductor fijo ---- */
-.player-shell{position:fixed;left:18px;right:18px;bottom:14px;z-index:90;display:grid;grid-template-columns:minmax(190px,1fr) minmax(360px,1.5fr) minmax(160px,.8fr);gap:20px;align-items:center;min-height:var(--player-height);padding:14px 18px;border:1px solid rgba(241,179,113,.16);border-radius:20px;background:rgba(67,33,22,.84);box-shadow:0 22px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(243,226,207,.08);-webkit-backdrop-filter:blur(22px) saturate(1.2);backdrop-filter:blur(22px) saturate(1.2)}
+.player-shell{position:fixed;left:18px;right:18px;bottom:14px;z-index:90;display:grid;grid-template-columns:minmax(190px,1fr) minmax(360px,1.5fr) minmax(160px,.8fr);gap:20px;align-items:center;min-height:var(--player-height);padding:14px 18px;border:1px solid rgba(241,179,113,.16);border-radius:20px;background:rgba(34,16,11,.84);box-shadow:0 22px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(243,226,207,.08);-webkit-backdrop-filter:blur(22px) saturate(1.2);backdrop-filter:blur(22px) saturate(1.2)}
 .player-info{display:flex;align-items:center;gap:12px;min-width:0}
-.ice-tile{display:flex;align-items:flex-end;justify-content:center;flex:none;width:56px;height:64px;padding-bottom:8px;border-radius:8px;color:#fbf5ee;background:linear-gradient(180deg,#f1b473 0%,#b2432c 30%,#833e2a 68%,#3a1a12 100%);box-shadow:inset 0 0 0 1px rgba(241,221,199,.25),0 0 18px rgba(237,159,76,.14);font:500 22px/1 var(--serif);letter-spacing:-.04em}
+.ice-tile{display:flex;align-items:flex-end;justify-content:center;flex:none;width:56px;height:64px;padding-bottom:8px;border-radius:8px;color:#fbf5ee;background:linear-gradient(180deg,#f1b473 0%,#b2432c 30%,#833e2a 68%,#1d0d09 100%);box-shadow:inset 0 0 0 1px rgba(241,221,199,.25),0 0 18px rgba(237,159,76,.14);font:500 22px/1 var(--serif);letter-spacing:-.04em}
 .player-text{min-width:0}
 .player-text span{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
 .player-text strong{display:block;margin-top:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:500 16px/1.2 var(--serif);color:var(--ink)}
@@ -350,7 +356,7 @@ input[type="range"]{width:100%;height:4px;accent-color:var(--ice);cursor:pointer
 .speed-wheel-track b{display:grid;place-items:center;height:var(--item);scroll-snap-align:center;color:var(--muted);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;transition:color .12s linear}
 .speed-wheel-track b.on{color:var(--ink);font-weight:800}
 
-.toast{position:fixed;z-index:200;left:50%;bottom:calc(var(--player-height) + 36px);max-width:min(440px,86vw);padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(88,47,32,.96);box-shadow:var(--shadow);color:var(--text);font-size:12px;line-height:1.5;opacity:0;transform:translate(-50%,14px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.toast{position:fixed;z-index:200;left:50%;bottom:calc(var(--player-height) + 36px);max-width:min(440px,86vw);padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:rgba(44,23,16,.96);box-shadow:var(--shadow);color:var(--text);font-size:12px;line-height:1.5;opacity:0;transform:translate(-50%,14px);pointer-events:none;transition:opacity .2s ease,transform .2s ease}
 .toast.visible{opacity:1;transform:translate(-50%,0)}
 
 @media(max-width:1100px){
@@ -362,9 +368,9 @@ input[type="range"]{width:100%;height:4px;accent-color:var(--ice);cursor:pointer
   /* el desenfoque de fondo es caro en teléfono y compite con la reproducción:
      se cambia por paneles opacos (15-sep) */
   .topbar,.player-shell,.overall-progress-card,.now-playing-card,.chapter-panel,.part-card,.saga-card,.menu-button{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .overall-progress-card,.now-playing-card,.chapter-panel,.part-card,.saga-card{background:rgba(88,47,32,.92)}
-  .topbar{background:rgba(56,27,19,.94)}
-  .player-shell{background:rgba(67,33,22,.96)}
+  .overall-progress-card,.now-playing-card,.chapter-panel,.part-card,.saga-card{background:rgba(44,23,16,.92)}
+  .topbar{background:rgba(28,14,10,.94)}
+  .player-shell{background:rgba(34,16,11,.96)}
   .desktop-nav{display:none}
   .menu-button{display:grid}
   .hero{grid-template-columns:1fr;min-height:auto;padding-top:80px}
@@ -444,15 +450,15 @@ input[type="range"]{width:100%;height:4px;accent-color:var(--ice);cursor:pointer
 /* Escenas en bucle. Video mudo con loop, que hace de gif sin su peso. El poster
    evita que el hueco quede en negro antes de que el video arranque. */
 .scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.scene-card{position:relative;margin:0;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:rgba(88,47,32,.6)}
+.scene-card{position:relative;margin:0;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:rgba(44,23,16,.6)}
 .scene-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--ice),transparent);box-shadow:0 0 14px var(--ice);z-index:2}
-.scene-card video{display:block;width:100%;height:auto;background:#3a1e12}
-.scene-card figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:4px;padding:48px 20px 16px;background:linear-gradient(to top,rgba(57,28,15,.94),rgba(57,28,15,.55) 55%,transparent)}
+.scene-card video{display:block;width:100%;height:auto;background:#1d0f09}
+.scene-card figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:4px;padding:48px 20px 16px;background:linear-gradient(to top,rgba(28,14,7,.94),rgba(28,14,7,.55) 55%,transparent)}
 .scene-card strong{font:500 22px/1.1 var(--serif);color:var(--ink)}
 .scene-card figcaption span{color:var(--muted);font-size:12px;letter-spacing:.04em}
 @media(max-width:900px){.scene-grid{grid-template-columns:1fr}}
 
 /* Tráiler: pieza única con controles, no un bucle. Se pausa solo si arranca el
    audiolibro, y al revés. */
-.trailer-loop{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#3a1e12}
-.trailer-loop video{display:block;width:100%;height:auto;background:#3a1e12}
+.trailer-loop{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#1d0f09}
+.trailer-loop video{display:block;width:100%;height:auto;background:#1d0f09}
