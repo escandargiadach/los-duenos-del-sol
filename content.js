@@ -12,7 +12,7 @@ window.BOOK_DATA = {
     frontMatter: null
   },
   chapters: [
-    { number: 1, title: "De vuelta", part: "Parte I", file: "01-de-vuelta.mp3", seconds: 2080 },
+    { number: 1, title: "Bienvenido a casa", part: "Parte I", file: "01-de-vuelta.mp3", seconds: 2080 },
     { number: 2, title: "La brecha", part: "Parte I", file: "02-la-brecha.mp3", seconds: 2539 },
     { number: 3, title: "Los que quedan", part: "Parte I", file: "03-los-que-quedan.mp3", seconds: 3175 },
     { number: 4, title: "Los que estaban debajo", part: "Parte I", file: "04-los-que-estaban-debajo.mp3", seconds: 3123 },

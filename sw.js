@@ -1,6 +1,6 @@
 // REGLA (heredada del Libro I): todo cambio a index.html, styles.css, content.js,
 // app.js o brasas.js exige subir SHELL_CACHE antes de publicar.
-const SHELL_CACHE = "el-ciclo-inmovil-libro3-shell-v1";
+const SHELL_CACHE = "el-ciclo-inmovil-libro3-shell-v2";
 // Mismo nombre que AUDIO_CACHE en app.js ("Guardar sin conexión"). Si no
 // coinciden, el activate de abajo borra los capitulos guardados. No subirlo sin
 // motivo: vacia lo que cada oyente guardo.
